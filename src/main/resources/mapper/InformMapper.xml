@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.arthur.hesuanbackend.mapper.InformMapper">
+
+    <resultMap id="BaseResultMap" type="com.arthur.hesuanbackend.model.domain.Inform">
+            <result property="noticeId" column="noticeId" jdbcType="INTEGER"/>
+            <result property="userId" column="userId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        noticeId,userId
+    </sql>
+
+    <resultMap id="InformAndNoticeMap" type="com.arthur.hesuanbackend.model.domain.Inform">
+            <result property="noticeId" column="noticeId" jdbcType="INTEGER"/>
+        <result property="userId" column="userId" jdbcType="VARCHAR"/>
+        <collection property="notice"  ofType="com.arthur.hesuanbackend.model.domain.Notice">
+            <id property="id" column="id" />
+            <result property="title" column="title" />
+            <result property="content" column="content"/>
+            <result property="createTime" column="createTime" />
+            <result property="updateTime" column="updateTime" />
+            <result property="status" column="status" />
+        </collection>
+    </resultMap>
+
+    <select id="getInformList" resultMap="InformAndNoticeMap">
+        select  * from Inform left join Notice on Inform.noticeId = Notice.id
+                  where Inform.userId = #{userId} and Notice.status=1
+    </select>
+
+
+
+
+</mapper>

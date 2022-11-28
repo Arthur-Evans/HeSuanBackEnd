@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.arthur.hesuanbackend.mapper.RecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.arthur.hesuanbackend.model.domain.Record">
+            <id property="recordId" column="recordId" jdbcType="OTHER"/>
+            <result property="hsTime" column="hsTime" jdbcType="TIMESTAMP"/>
+            <result property="hsTemper" column="hsTemper" jdbcType="DOUBLE"/>
+            <result property="hsStatus" column="hsStatus" jdbcType="VARCHAR"/>
+            <result property="hsHigh" column="hsHigh" jdbcType="TINYINT"/>
+            <result property="hsDiagnosis" column="hsDiagnosis" jdbcType="TINYINT"/>
+            <result property="citizenID" column="citizenID" jdbcType="OTHER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        recordId,hsTime,hsTemper,
+        hsStatus,hsHigh,hsDiagnosis,
+        citizenID
+    </sql>
+</mapper>

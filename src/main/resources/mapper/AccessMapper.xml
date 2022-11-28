@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.arthur.hesuanbackend.mapper.AccessMapper">
+
+    <resultMap id="BaseResultMap" type="com.arthur.hesuanbackend.model.domain.Access">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="userId" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="reason" column="reason" jdbcType="VARCHAR"/>
+            <result property="leaveAddress" column="leaveAddress" jdbcType="VARCHAR"/>
+            <result property="leaveTime" column="leaveTime" jdbcType="TIMESTAMP"/>
+            <result property="backTime" column="backTime" jdbcType="TIMESTAMP"/>
+            <result property="applyTime" column="applyTime" jdbcType="TIMESTAMP"/>
+            <result property="manageId" column="manageId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,status,
+        reason,leaveAddress,leaveTime,
+        backTime,applyTime,manageId,
+        photo
+    </sql>
+</mapper>
